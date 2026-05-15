@@ -3,6 +3,11 @@
     --bg: #f9f9f9;
     --text: #333;
 }
+.dark-mode {
+    --primary: hsl(211, 89%, 11%);
+    --bg: #121212;
+    --text: #e69494;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bg);
@@ -34,6 +39,17 @@ nav a {
     text-decoration: underline;
 
 }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+nav a:hover {
+    color: hsl(216, 100%, 50%);
+    transform: scale(1.1);
+}
+
 #projects .grid {
     display: grid;
     gap: 1rem;
@@ -95,7 +111,12 @@ footer {
 
 }
 footer a {
-    color: white;
+    color: #130707;
     margin: 0 0.5rem;
+
+}
+footer a :hover {
+    color: hsl(216, 100%, 50%);
+    transform: scale(1.1);
 
 }
