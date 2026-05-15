@@ -115,8 +115,4 @@ footer a {
     margin: 0 0.5rem;
 
 }
-footer a :hover {
-    color: hsl(216, 100%, 50%);
-    transform: scale(1.1);
 
-}
