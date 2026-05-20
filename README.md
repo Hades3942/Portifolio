@@ -1,5 +1,6 @@
 # Student info
-Name: ABDULKADIR BAKAR MBWANA
+# Name: ABDULKADIR BAKAR MBWANA
+
 Registration No: 24BCS028
 
 # Portfolio
