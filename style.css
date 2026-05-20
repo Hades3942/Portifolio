@@ -18,7 +18,11 @@ body {
     font-size: 1rem;
 }
 hi, h2 {
+    font-size: 2rem;
     color: var(--primary);
+    text-align: center;
+    margin: 1rem 0;
+
 }
 header {
     display: flex;
