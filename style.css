@@ -30,7 +30,7 @@ header {
     align-items: center;
     padding: 1rem 2rem;
     background: var(--primary);
-    color: white;
+    color:#333;
 }
 nav ul {
     list-style: none;
