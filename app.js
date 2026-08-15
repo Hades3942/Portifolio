@@ -104,3 +104,101 @@ form.addEventListener("submit", (event) => {
 });
 
 year.textContent = new Date().getFullYear();
+
+const projectDialog = document.getElementById("projectDialog");
+const dialogClose = document.getElementById("dialogClose");
+const dialogType = document.getElementById("dialogType");
+const dialogTitle = document.getElementById("dialogTitle");
+const dialogSummary = document.getElementById("dialogSummary");
+const dialogHighlights = document.getElementById("dialogHighlights");
+const dialogTags = document.getElementById("dialogTags");
+const dialogLink = document.getElementById("dialogLink");
+
+const projectDetails = {
+  portfolio: {
+    type: "Web development / Case study",
+    title: "Portfolio Website",
+    summary: "A personal portfolio redesigned as a focused, responsive experience for communicating technical interests, selected work, and opportunities to collaborate.",
+    highlights: ["Responsive layout built for mobile, tablet, and desktop", "Accessible navigation, focus states, and reduced-motion support", "Theme persistence, project filters, live repository showcase, and contact flow"],
+    tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    link: "https://github.com/Hades3942/Portifolio",
+  },
+  ticket: {
+    type: "Systems / Case study",
+    title: "Ticket System",
+    summary: "A desktop application concept for managing routes and tickets with a simple operational workflow from data entry to ticket handling.",
+    highlights: ["Translated a real-world transport workflow into software concepts", "Explored relational data modeling with SQL", "Focused on clear forms and predictable Windows desktop interactions"],
+    tags: ["SQL", "C#", "Windows Forms", "Systems thinking"],
+    link: "https://github.com/Hades3942",
+  },
+  security: {
+    type: "Security lab / Case study",
+    title: "Cybersecurity Lab",
+    summary: "A hands-on learning track for understanding how networks behave, how services are discovered, and how defensive investigation can be approached responsibly.",
+    highlights: ["Practiced network inspection with Wireshark", "Explored service discovery using Nmap in controlled environments", "Built familiarity with Kali Linux and proxy-aware testing concepts"],
+    tags: ["Kali Linux", "Nmap", "Wireshark", "Ethical hacking"],
+    link: "https://github.com/Hades3942",
+  },
+};
+
+function openProjectDialog(projectKey) {
+  const project = projectDetails[projectKey];
+  if (!project || !projectDialog) return;
+  dialogType.textContent = project.type;
+  dialogTitle.textContent = project.title;
+  dialogSummary.textContent = project.summary;
+  dialogHighlights.replaceChildren(...project.highlights.map((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    return listItem;
+  }));
+  dialogTags.replaceChildren(...project.tags.map((item) => {
+    const tag = document.createElement("span");
+    tag.textContent = item;
+    return tag;
+  }));
+  dialogLink.href = project.link;
+  projectDialog.showModal();
+}
+
+document.querySelectorAll(".case-study-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", () => openProjectDialog(trigger.dataset.project));
+});
+
+dialogClose?.addEventListener("click", () => projectDialog.close());
+projectDialog?.addEventListener("click", (event) => {
+  if (event.target === projectDialog) projectDialog.close();
+});
+
+const githubGrid = document.getElementById("githubGrid");
+const githubProfile = "https://api.github.com/users/Hades3942/repos?sort=updated&per_page=6";
+
+function escapeHtml(value = "") {
+  return String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+}
+
+function formatDate(dateString) {
+  return new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(new Date(dateString));
+}
+
+async function loadGitHubRepositories() {
+  if (!githubGrid) return;
+  try {
+    const response = await fetch(githubProfile, { headers: { Accept: "application/vnd.github+json" } });
+    if (!response.ok) throw new Error("GitHub repositories unavailable");
+    const repositories = (await response.json()).filter((repo) => !repo.fork).slice(0, 6);
+    if (!repositories.length) throw new Error("No repositories found");
+    githubGrid.innerHTML = repositories.map((repo) => `
+      <article class="github-card reveal visible">
+        <div class="github-card-top"><span class="github-language">${escapeHtml(repo.language || "Project")}</span><span>Updated ${escapeHtml(formatDate(repo.updated_at))}</span></div>
+        <h3>${escapeHtml(repo.name)}</h3>
+        <p>${escapeHtml(repo.description || "A project by Abdulkadir Mbwana.")}</p>
+        <div class="github-stats"><span>★ ${repo.stargazers_count}</span><span>⑂ ${repo.forks_count}</span></div>
+        <a class="github-card-link" href="${escapeHtml(repo.html_url)}" target="_blank" rel="noreferrer">Open repository <span aria-hidden="true">↗</span></a>
+      </article>`).join("");
+  } catch (error) {
+    githubGrid.innerHTML = '<p class="github-error">GitHub repositories could not be loaded right now. <a class="text-link" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">View the profile directly ↗</a></p>';
+  }
+}
+
+loadGitHubRepositories();
