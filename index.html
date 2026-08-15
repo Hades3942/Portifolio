@@ -1,66 +1,155 @@
- <!DOCTYPE html>
-<html lang ="en" >
-    <head>
-         <meta charset="UTF-8">
-        <title>Hades007</title>
-        <link rel="stylesheet" href="style.css">
-        <body>
-            <header>
-                <h1>Abdulkadir's Portfolio</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <button id="darkToggle">Toggle Dark Mode</button>
-                    </ul>
-                </nav>
-            </header>
-            <main>
-                <section id="about">
-                    <h2>About Me</h2>
-                    <p>Hi, Welcome to my page.I'm ABDULKADIR B.MBWANA a computer science student at The State University of Zanzibar(SUZA) passionate about Web development, cybersecurity and Ethical Hacking</p>
-                    <img src="20260418_070325.jpg" alt="My Photo" width="200">
-                </section>
-               <section id="projects">
-                <h2>Projects</h2>
-                    <div class="grid">
-                <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>A responsive personal site built with HTML, CSS, and JavaScript.</p>
-        </div>
-             <div class="card">
-             <h3>Ticket System</h3>
-             <p>SQL + C# Windows Forms app for managing routes and tickets.</p>
-        </div>
-        <div class="card">
-            <h3>Cybersecurity Lab</h3>
-            <p>Hands-on Kali Linux lab with Wireshark, Nmap, and ProxyChains.</p>
-        </div>
-    </div>
-</section>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Abdulkadir Bakar Mbwana is a computer science student building useful web experiences and exploring cybersecurity."
+    />
+    <meta name="theme-color" content="#0c1324" />
+    <title>Abdulkadir Mbwana | Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-<section id="contact">
-                    <h2>Contact Me</h2>
-                    <form>
-                        <label>Email:</label>
-                        <input type="email" name="email" required>
-                        <br>
-                        <label>Message:</label>
-                        <textarea name="message" required></textarea>
-                        <br>
-                        <button type="submit">Send</button>
-                    </form>
-                </section>
-            </main>
-            <footer>
-                <p>&copy; 2026 Abdulkadir Mbwana</p>
-                <p>
-                    <a href="https://github.com/Hades3942">Github</a>
-                    <a href="https://linkedin.com/in/Abdulkadir Bakar">Linkedin</a>
-                </p>
-            </footer>
-        </body>
-    </head>
+    <header class="site-header" id="top">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="Abdulkadir Mbwana home">
+          <span class="brand-mark">AM</span>
+          <span>Abdulkadir<span class="brand-dot">.</span></span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+          <a class="nav-link active" href="#about">About</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <button class="theme-toggle" id="darkToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">☾</span>
+            <span class="theme-label">Dark mode</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section-padding" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="eyebrow-line"></span> Computer science student · Zanzibar</p>
+            <h1 id="hero-title">I build digital experiences with <span>curiosity and purpose.</span></h1>
+            <p class="hero-lede">I’m Abdulkadir Bakar Mbwana, a developer exploring web development, cybersecurity, and practical software that helps people solve everyday problems.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+              <a class="button button-ghost" href="#contact">Let’s connect <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-meta" aria-label="Quick facts">
+              <span><strong>03+</strong> featured projects</span>
+              <span><strong>24</strong> BCS student</span>
+              <span><strong>∞</strong> ideas to explore</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal reveal-delay">
+            <div class="visual-orbit orbit-one"></div>
+            <div class="visual-orbit orbit-two"></div>
+            <div class="profile-frame">
+              <img src="20260418_070325.jpg" alt="Portrait of Abdulkadir Bakar Mbwana" />
+              <div class="status-card"><span class="status-dot"></span><span>Available for opportunities</span></div>
+            </div>
+            <div class="code-card" aria-hidden="true"><span class="code-purple">const</span> <span class="code-blue">focus</span> = <span class="code-green">"keep building"</span>;</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-padding" id="about" aria-labelledby="about-title">
+        <div class="container split-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">01 / About</p>
+            <h2 id="about-title">A builder who stays curious.</h2>
+          </div>
+          <div class="about-copy reveal reveal-delay">
+            <p>I’m currently studying Computer Science at the State University of Zanzibar (SUZA). My interests sit at the intersection of thoughtful interfaces, reliable systems, and security-minded development.</p>
+            <p>Whether I’m designing a portfolio, working through a management system, or learning a new security tool, I enjoy turning a blank page into something useful, clear, and easy to understand.</p>
+            <a class="text-link" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">See more on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills section-padding" id="skills" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-heading centered reveal">
+            <p class="eyebrow">02 / Capabilities</p>
+            <h2 id="skills-title">What I’m learning and building with.</h2>
+          </div>
+          <div class="skill-grid">
+            <article class="skill-card reveal"><span class="skill-number">01</span><span class="skill-icon" aria-hidden="true">⌘</span><h3>Web development</h3><p>Responsive interfaces with semantic HTML, modern CSS, and JavaScript.</p><div class="skill-bar"><span style="width: 82%"></span></div></article>
+            <article class="skill-card reveal reveal-delay"><span class="skill-number">02</span><span class="skill-icon" aria-hidden="true">◈</span><h3>Cybersecurity</h3><p>Hands-on exploration of networks, ethical hacking, and security tooling.</p><div class="skill-bar"><span style="width: 68%"></span></div></article>
+            <article class="skill-card reveal reveal-delay-2"><span class="skill-number">03</span><span class="skill-icon" aria-hidden="true">⌬</span><h3>Problem solving</h3><p>Breaking complex requirements into practical, testable software.</p><div class="skill-bar"><span style="width: 78%"></span></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section-padding" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="projects-heading reveal">
+            <div class="section-heading"><p class="eyebrow">03 / Selected work</p><h2 id="projects-title">Projects with a purpose.</h2></div>
+            <div class="project-filters" role="group" aria-label="Filter projects">
+              <button class="filter-button active" type="button" data-filter="all">All</button>
+              <button class="filter-button" type="button" data-filter="web">Web</button>
+              <button class="filter-button" type="button" data-filter="systems">Systems</button>
+              <button class="filter-button" type="button" data-filter="security">Security</button>
+            </div>
+          </div>
+          <div class="project-grid" id="projectGrid">
+            <article class="project-card featured reveal" data-category="web">
+              <div class="project-topline"><span class="project-type">Web development</span><span class="project-index">01</span></div>
+              <h3>Portfolio Website</h3><p>A responsive personal site built with a focus on clear storytelling, accessible interactions, and a memorable visual identity.</p>
+              <div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <a class="project-link" href="https://github.com/Hades3942/Portifolio" target="_blank" rel="noreferrer">View repository <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="project-card reveal reveal-delay" data-category="systems">
+              <div class="project-topline"><span class="project-type">Systems</span><span class="project-index">02</span></div>
+              <h3>Ticket System</h3><p>A SQL and C# Windows Forms concept for managing routes and tickets with a straightforward operational workflow.</p>
+              <div class="tag-list"><span>SQL</span><span>C#</span><span>Desktop</span></div>
+              <a class="project-link" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="project-card reveal reveal-delay-2" data-category="security">
+              <div class="project-topline"><span class="project-type">Security lab</span><span class="project-index">03</span></div>
+              <h3>Cybersecurity Lab</h3><p>A hands-on learning environment using Kali Linux, Wireshark, Nmap, and ProxyChains to understand defensive security.</p>
+              <div class="tag-list"><span>Kali Linux</span><span>Nmap</span><span>Wireshark</span></div>
+              <a class="project-link" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+          <p class="empty-state" id="emptyState" hidden>No projects found in this category yet.</p>
+        </div>
+      </section>
+
+      <section class="contact section-padding" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div class="section-heading reveal"><p class="eyebrow">04 / Contact</p><h2 id="contact-title">Have an idea? Let’s start a conversation.</h2><p class="contact-intro">I’m open to learning opportunities, collaborations, and conversations about technology.</p><a class="contact-email" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">github.com/Hades3942 <span aria-hidden="true">↗</span></a></div>
+          <form class="contact-form reveal reveal-delay" id="contactForm">
+            <label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Jane Doe" required />
+            <label for="email">Email address</label><input id="email" name="email" type="email" placeholder="jane@example.com" required />
+            <label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Tell me a little about your idea..." required></textarea>
+            <button class="button button-primary" type="submit">Prepare message <span aria-hidden="true">↗</span></button>
+            <p class="form-note" id="formNote" role="status">This opens your email app with the message prepared.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-wrap"><p>© <span id="year">2026</span> Abdulkadir Mbwana</p><div><a href="https://github.com/Hades3942" target="_blank" rel="noreferrer">GitHub</a><a href="#top">Back to top ↑</a></div></div></footer>
+  </body>
 </html>
-<script src="app.js"></script>
