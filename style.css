@@ -1077,3 +1077,7 @@ h3 {
 .back-top { text-decoration: none; }
 .back-top:hover { color: var(--primary); }
 @media (max-width: 680px) { .footer-actions { align-items: flex-start; flex-direction: column; gap: 12px; } }
+
+.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.form-note.success { color: #2dbb76; }
+.form-note.error { color: var(--accent); }

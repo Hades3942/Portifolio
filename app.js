@@ -112,19 +112,34 @@ filterButtons.forEach((button) => {
   });
 });
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const submitButton = form.querySelector("button[type=submit]");
+  const originalButtonText = submitButton.innerHTML;
   const formData = new FormData(form);
-  const name = formData.get("name");
-  const email = formData.get("email");
-  const message = formData.get("message");
-  const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-  const bodyText = encodeURIComponent(
-    `Hi Abdulkadir,\n\n${message}\n\nReply to: ${email}`,
-  );
-  window.location.href = `mailto:?subject=${subject}&body=${bodyText}`;
-  formNote.textContent =
-    "Your email app should open with the message prepared.";
+  formData.append("_replyto", formData.get("email"));
+  submitButton.disabled = true;
+  submitButton.innerHTML = "Sending message <span aria-hidden=\"true\">…</span>";
+  formNote.className = "form-note";
+  formNote.textContent = "Sending your message securely…";
+
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/abdulkadirbakar39@gmail.com", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: formData,
+    });
+    if (!response.ok) throw new Error("Message delivery failed");
+    form.reset();
+    formNote.className = "form-note success";
+    formNote.textContent = "Thanks — your message was sent to Abdulkadir's inbox.";
+  } catch (error) {
+    formNote.className = "form-note error";
+    formNote.textContent = "The message could not be sent right now. Please try again or use GitHub.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonText;
+  }
 });
 
 year.textContent = new Date().getFullYear();
