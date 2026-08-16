@@ -1069,15 +1069,68 @@ h3 {
   color: var(--accent);
 }
 
-.footer-actions { display: flex; align-items: center; gap: 20px; }
-.social-actions { display: flex; align-items: center; gap: 9px; }
-.social-button { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface-muted); color: var(--text); text-decoration: none; transition: transform 160ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease; }
-.social-button svg { width: 18px; height: 18px; fill: currentColor; }
-.social-button:hover { transform: translateY(-3px); border-color: var(--primary); background: var(--primary); color: #fff; }
-.back-top { text-decoration: none; }
-.back-top:hover { color: var(--primary); }
-@media (max-width: 680px) { .footer-actions { align-items: flex-start; flex-direction: column; gap: 12px; } }
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.social-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.social-button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-muted);
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+.social-button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.social-button:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+.back-top {
+  text-decoration: none;
+}
+.back-top:hover {
+  color: var(--primary);
+}
+@media (max-width: 680px) {
+  .footer-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 
-.form-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
-.form-note.success { color: #2dbb76; }
-.form-note.error { color: var(--accent); }
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.form-note.success {
+  color: #2dbb76;
+}
+.form-note.error {
+  color: var(--accent);
+}

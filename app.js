@@ -319,5 +319,9 @@ async function loadGitHubRepositories() {
       '<p class="github-error">GitHub repositories could not be loaded right now. <a class="text-link" href="https://github.com/Hades3942" target="_blank" rel="noreferrer">View the profile directly ↗</a></p>';
   }
 }
+const backTop = document.querySelector("#top");
+backTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 loadGitHubRepositories();
