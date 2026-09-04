@@ -94,7 +94,7 @@ To publish future changes through GitHub Pages, commit the updated files to the 
 Computer Science student · Zanzibar
 
 - GitHub: [@Hades3942](https://github.com/Hades3942)
-- LinkedIn: [Abdulkadir Mbwana](https://www.linkedin.com/in/abdulkadir-mbwana/)
+- LinkedIn: [Abdulkadir Mbwana](https://www.linkedin.com/in/abdulkadir-bakar-599360258)
 - Email: [abdulkadirbakar39@gmail.com](mailto:abdulkadirbakar39@gmail.com)
 
 ## License
