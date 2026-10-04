@@ -233,6 +233,20 @@ const projectDetails = {
     tags: ["Java", "PostgreSQL", "Docker", "JavaScript", "HTML", "CSS", "Spring Boot", "RESTful APIs"],
     link: "https://github.com/Hades3942/Marine-Management-Portal",
   },
+  models: {
+    type: "Data Science and AI / Case study",
+    title: "MVTec AD Anomaly Detector",
+    summary:
+    "An industrial components anomaly detector that predicts and separates good and defective materials using web interface.",
+    highlights: [
+      "Solves a real-world problems by separating a defective materials for human use.",
+      "Designed using Python for functionalities, streamlit for interface and SQLite for storing recently history.",
+      "Uses a Random forest for best models on predictions and cleaned dataset found on kaggle."
+    ],
+    tags: ["Python", "Streamlit", "SQLite", "Google colab"],
+    link: "https://github.com/Hades3942/Industrial-Anomaly-detection-app",
+
+  },
 };
 
 function openProjectDialog(projectKey) {
